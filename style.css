@@ -29,7 +29,7 @@ body {
 }
 
 .tileBar {
-  height: 5vh;
+  min-height: max(5vh, 40px);
   background-color: #202020;
   border-bottom: 1px solid #3a3a3a;
   display: flex;
@@ -37,7 +37,7 @@ body {
   padding: 0 20px;
   color: #919191;
   font-family: monospace;
-  font-size: 1.3em;
+  font-size: 1rem;
 }
 
 footer.tileBar {
@@ -53,12 +53,12 @@ h2 {
   font-family: "Handjet", sans-serif;
   text-transform: uppercase;
   font-weight: 300;
-  font-size: 72px;
+  font-size: 5rem;
   text-shadow: 0 0 20px #ffffff;
 }
 
-p {
-  font-size: 24px;
+p, ul {
+  font-size: min(1.6vw, 24px);
 }
 
 /* Frontpage */
@@ -87,14 +87,14 @@ p {
 
 #introduction h1 {
   font-weight: 300;
-  font-size: 120px;
-  line-height: 100px;
+  font-size: min(8vw, 120px);
+  line-height: 0.8em;
   margin: 0;
 }
 
 #introduction #name {
   font-family: "UnifrakturMaguntia", sans-serif;
-  letter-spacing: -7px;
+  letter-spacing: -6px;
 }
 
 #introduction #surname {
@@ -107,15 +107,15 @@ p {
 }
 
 #subtitle h3 {
-  font-size: 36px;
+  font-size: min(2.3vw, 32px);
   text-transform: uppercase;
   font-weight: 100;
   margin: 0 30px 0 0;
 }
 
 #githubBtn, #githubBtn img {
-  height: 40px;
-  width: 40px;
+  height: min(3vw, 40px);
+  width: min(3vw, 40px);
 }
 
 /* Marquee */
@@ -197,7 +197,6 @@ p {
 ul {
   list-style-type: "\2713\0020";
   list-style-position: outside;
-  font-size: 24px;
 }
 
 .flashLetter {
@@ -293,8 +292,7 @@ ul {
   }
 }
 
-/* Mobile devices */
-
+/* Mobile devices - portrait + landscape (keeps images on the right) */
 @media screen and (max-width: 1000px) {
   body {
     overflow-y: auto;
@@ -307,7 +305,76 @@ ul {
     pointer-events: all;
   }
 
+  h2 {
+    font-size: 4rem;
+  }
+
+  p, ul {
+    font-size: 20px;
+  }
+
   #cursor {
     display: none;
+  }
+
+  .tileContent {
+    padding: 20px;
+  }
+
+  #frontpage {
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  #introduction .tileContent {
+    padding: 40px 20px;
+  }
+
+  #introduction h1 {
+    font-size: 75px;
+    line-height: 70px;
+  }
+
+  #introduction #name {
+    letter-spacing: -4px;
+  }
+
+  #subtitle {
+    margin: 30px 0;
+  }
+
+  #subtitle h3 {
+    font-size: 24px;
+  }
+
+  #githubBtn, #githubBtn img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .project {
+    height: max-content;
+  }
+}
+
+/* Mobile devices - portrait only (sticks images to bottom) */
+@media screen and (max-width: 1000px) and (min-height: 500px) {
+  .project {
+    margin-bottom: 40vh;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  #imgBox {
+    width: 100%;
+    float: none;
+    display: flex;
+    top: 60vh;
+    height: 0px;
+  }
+
+  #imgBox img {
+    height: 40vh;
   }
 }
