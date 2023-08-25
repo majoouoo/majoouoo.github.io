@@ -58,7 +58,7 @@ h2 {
 }
 
 p, ul {
-  font-size: min(1.6vw, 24px);
+  font-size: min(1.8vw, 24px);
 }
 
 /* Frontpage */
@@ -294,15 +294,22 @@ ul {
 
 /* Mobile devices - portrait + landscape (keeps images on the right) */
 @media screen and (max-width: 1000px) {
+  * {
+    cursor: initial;
+  }
+
   body {
     overflow-y: auto;
-    cursor: default;
     pointer-events: none;
   }
 
   a {
     cursor: pointer;
     pointer-events: all;
+  }
+
+  img {
+    cursor: unset;
   }
 
   h2 {
