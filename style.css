@@ -16,8 +16,16 @@ body {
   cursor: none;
   user-select: none;
   -webkit-user-select: none;
-  font-family: "Space Grotesk", sans-serif;
   color: white;
+}
+
+p, ul {
+  font-family: "Lora", monospace;
+}
+
+a {
+  color: #bbff00;
+  text-decoration: none;
 }
 
 /* General */
@@ -28,7 +36,7 @@ body {
   overflow: hidden;
 }
 
-.tileBar {
+.tile-bar {
   min-height: max(5vh, 40px);
   background-color: #202020;
   border-bottom: 1px solid #3a3a3a;
@@ -40,21 +48,19 @@ body {
   font-size: 1rem;
 }
 
-footer.tileBar {
+footer.tile-bar {
   border-top: 1px solid #3a3a3a;
   border-bottom: none;
 }
 
-.tileContent {
+.tile-content {
   padding: 20px 40px;
 }
 
 h2 {
-  font-family: "Handjet", sans-serif;
-  text-transform: uppercase;
+  font-family: sans-serif;
   font-weight: 300;
   font-size: 5rem;
-  text-shadow: 0 0 20px #ffffff;
 }
 
 p, ul {
@@ -64,63 +70,100 @@ p, ul {
 /* Frontpage */
 
 #frontpage {
-  height: calc(100vh - 61px * 2 - 40px);
+  height: calc(100vh - 61px * 2);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  padding: 20px;
-  gap: 20px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  overflow-x: hidden;
+}
+
+#frontpage section {
+  padding: 20px 50px;
+}
+
+#grid-wrapper {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  z-index: -1;
+  height: calc(100vh - 61px * 2);
+  width: 100vw;
+  position: absolute;
+  perspective: 40px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+#grid {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  z-index: -1;
+  height: 100%;
+  width: 400vw;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateX(30deg);
 }
 
 #introduction {
   grid-row: 1 / -1;
   display: flex;
   flex-direction: column;
-}
-
-#introduction .tileContent {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
 }
 
 #introduction h1 {
   font-weight: 300;
-  font-size: min(8vw, 120px);
-  line-height: 0.8em;
+  font-size: min(10vw, 150px);
+  line-height: 0.7em;
   margin: 0;
+  color: #bbff00;
 }
 
 #introduction #name {
   font-family: "UnifrakturMaguntia", sans-serif;
-  letter-spacing: -6px;
+  letter-spacing: -5px;
 }
 
 #introduction #surname {
   font-family: "Vina Sans", sans-serif;
+  letter-spacing: -5px;
+  transform: translateX(-7px);
 }
 
 #subtitle {
-  margin: 50px 0;
+  margin: 20px 0;
   display: flex;
 }
 
 #subtitle h3 {
-  font-size: min(2.3vw, 32px);
-  text-transform: uppercase;
+  font-size: min(4vw, 40px);
+  /* text-transform: uppercase; */
   font-weight: 100;
   margin: 0 30px 0 0;
 }
 
-#githubBtn, #githubBtn img {
+#github-btn, #github-btn img {
   height: min(3vw, 40px);
   width: min(3vw, 40px);
 }
 
+#github-btn {
+  margin: auto 0;
+}
+
+#contact p {
+  font-size: 330%;
+  font-family: "Le Murmure", sans-serif;
+  white-space: nowrap;
+  color: #ffffff30;
+}
+
 /* Marquee */
 
-#topMarquee, #bottomMarquee {
+#top-marquee, #bottom-marquee {
   height: 40px;
   padding: 10px;
   border-bottom: 1px solid #3a3a3a;
@@ -129,7 +172,7 @@ p, ul {
   overflow: hidden;
 }
 
-#bottomMarquee {
+#bottom-marquee {
   border-top: 1px solid #3a3a3a;
 }
 
@@ -179,7 +222,7 @@ p, ul {
   margin-top: 20px;
 }
 
-#imgBox {
+#img-box {
   position: sticky;
   width: 50%;
   top: 0;
@@ -187,9 +230,13 @@ p, ul {
   display: block;
 }
 
-#imgBox img {
+#img-box .tile {
+  margin: 20px;
+}
+
+#img-box img {
   object-fit: cover;
-  height: 50vh;
+  height: calc(50vh - max(5vh, 40px) - 33px);
   width: 100%;
   display: block;
 }
@@ -199,12 +246,19 @@ ul {
   list-style-position: outside;
 }
 
-.flashLetter {
+h2.flash {
+  font-family: "Handjet", sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-shadow: 0 0 20px #ffffff;
+}
+
+.flash-letter {
   color: #303030;
   text-shadow: none;
 }
 
-.litLetter {
+.lit-letter {
   color: white;
   text-shadow: 0 0 20px #ffffff;
 }
@@ -224,11 +278,11 @@ ul {
   z-index: 10;
 }
 
-#cursor.activeCursor {
+#cursor.active-cursor {
   animation: cursor 2.5s infinite;
 }
 
-#cursor.activeCursor::after {
+#cursor.active-cursor::after {
   content: "";
   background: white;
   height: 10px;
@@ -313,7 +367,7 @@ ul {
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   p, ul {
@@ -324,7 +378,7 @@ ul {
     display: none;
   }
 
-  .tileContent {
+  .tile-content {
     padding: 20px;
   }
 
@@ -334,12 +388,20 @@ ul {
     grid-template-rows: 1fr 1fr 1fr;
   }
 
-  #introduction .tileContent {
-    padding: 40px 20px;
+  #frontpage section {
+    padding: 20px;
+  }
+
+  #grid-wrapper {
+    display: none;
+  }
+
+  #introduction {
+    margin-top: 20px;
   }
 
   #introduction h1 {
-    font-size: 75px;
+    font-size: 100px;
     line-height: 70px;
   }
 
@@ -355,9 +417,13 @@ ul {
     font-size: 24px;
   }
 
-  #githubBtn, #githubBtn img {
+  #github-btn, #github-btn img {
     height: 30px;
     width: 30px;
+  }
+
+  #contact p {
+    font-size: 200%;
   }
 
   .project {
@@ -373,7 +439,7 @@ ul {
     justify-content: flex-start;
   }
 
-  #imgBox {
+  #img-box {
     width: 100%;
     float: none;
     display: flex;
@@ -381,7 +447,18 @@ ul {
     height: 0px;
   }
 
-  #imgBox img {
+  #img-box .tile {
     height: 40vh;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+  }
+
+  #img-box .tile .tile-bar {
+    display: none;
+  }
+
+  .show-desktop {
+    display: none;
   }
 }

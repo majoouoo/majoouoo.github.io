@@ -11,26 +11,26 @@ const handleMouseMove = (e) => {
 
 document.body.addEventListener("mousemove", e => handleMouseMove(e))
 
-const githubBtn = document.getElementById("githubBtn")
+const githubBtn = document.getElementById("github-btn")
 const links = document.querySelectorAll("a")
 
 githubBtn.addEventListener("mouseover", () => {
-  cursorEl.classList.add("activeCursor")
+  cursorEl.classList.add("active-cursor")
 })
 
 githubBtn.addEventListener("mouseout", () => {
-  cursorEl.classList.remove("activeCursor")
+  cursorEl.classList.remove("active-cursor")
 })
 
 for(const link of links) {
   link.addEventListener("mouseover", () => {
     if(link != githubBtn) {
-      cursorEl.classList.add("activeCursor")
+      cursorEl.classList.add("active-cursor")
     }
   })
 
   link.addEventListener("mouseout", () => {
-    cursorEl.classList.remove("activeCursor")
+    cursorEl.classList.remove("active-cursor")
   })
 }
 
@@ -41,7 +41,7 @@ flashHeadings.forEach(heading => {
   let result = ""
 
   letters.forEach(letter => {
-    result += `<span class="flashLetter">${letter}</span>`
+    result += `<span class="flash-letter">${letter}</span>`
   })
 
   heading.innerHTML = result
@@ -62,9 +62,9 @@ const flashEffect = (heading) => {
     const repeats = Math.ceil(Math.random() * 4)
     for(let i = 0; i < repeats; i++) {
       const delay = Math.random() * 300
-      await createTimer(() => letter.classList.add("litLetter"), delay)
-      await createTimer(() => letter.classList.remove("litLetter"), 100)
-      i == repeats - 1 ? letter.classList.add("litLetter") : null
+      await createTimer(() => letter.classList.add("lit-letter"), delay)
+      await createTimer(() => letter.classList.remove("lit-letter"), 100)
+      i == repeats - 1 ? letter.classList.add("lit-letter") : null
     }
   })
 }
@@ -80,3 +80,9 @@ const handleScroll = (e) => {
 }
 
 window.addEventListener("scroll", e => handleScroll(e))
+
+document.getElementById("email").addEventListener("click", async () => {
+  await navigator.clipboard.writeText("marianbarancik1@gmail.com")
+  document.getElementById("copied-msg").innerText = "COPIED"
+  document.getElementById("copied-msg").style.color = "#bbff00"
+})

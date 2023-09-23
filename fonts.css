@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Resistance';
+  src: url('./public/fonts/resistance_generale-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VG5000';
+  src: url('./public/fonts/VG5000-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outward Block';
+  src: url('./public/fonts/outward-block-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outward Borders';
+  src: url('./public/fonts/outward-borders-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outward Round';
+  src: url('./public/fonts/outward-round-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Le Murmure';
+  src: url('./public/fonts/LeMurmure-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gulax';
+  src: url('./public/fonts/Gulax-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pilowlava';
+  src: url('./public/fonts/Pilowlava-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sligoil';
+  src: url('./public/fonts/Sligoil-Micro.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Grotesk';
+  src: url('./public/fonts/Grotesk-03Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Grotesk';
+  src: url('./public/fonts/Grotesk-04Gras.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.resistance {
+  font-family: "Resistance", sans-serif;
+}
+
+.vg5000 {
+  font-family: "VG5000", sans-serif;
+}
+
+.outward-block {
+  font-family: "Outward Block", sans-serif;
+}
+
+.outward-borders {
+  font-family: "Outward Borders", sans-serif;
+}
+
+.outward-round {
+  font-family: "Outward Round", sans-serif;
+}
+
+.le-murmure {
+  font-family: "Le Murmure", sans-serif;
+}
+
+.gulax {
+  font-family: "Gulax", sans-serif;
+}
+
+.pilowlava {
+  font-family: "Pilowlava", sans-serif;
+}
+
+.sligoil {
+  font-family: "Sligoil", sans-serif;
+}
+
+.grotesk {
+  font-family: "Grotesk", sans-serif;
+}
+
+.unifraktur {
+  font-family: "UnifrakturMaguntia", sans-serif;
+}
+
+.vina-sans {
+  font-family: "Vina Sans", sans-serif;
+}
