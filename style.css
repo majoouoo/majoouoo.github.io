@@ -25,7 +25,6 @@ p, ul {
 
 a {
   color: #bbff00;
-  text-decoration: none;
 }
 
 /* General */
@@ -158,7 +157,7 @@ p, ul {
   font-size: 330%;
   font-family: "Le Murmure", sans-serif;
   white-space: nowrap;
-  color: #ffffff30;
+  color: #4d4d4d;
 }
 
 /* Marquee */
@@ -460,5 +459,9 @@ h2.flash {
 
   .show-desktop {
     display: none;
+  }
+
+  #contact p {
+    color: white;
   }
 }
