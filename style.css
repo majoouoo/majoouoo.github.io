@@ -153,6 +153,10 @@ p, ul {
   margin: auto 0;
 }
 
+#about p {
+  max-width: calc(100vw - 40px);
+}
+
 #contact p {
   font-size: 330%;
   font-family: "Le Murmure", sans-serif;
