@@ -59,11 +59,11 @@ const createTimer = (cb, ms) => {
 const flashEffect = (heading) => {
   const letters = [...heading.children]
   letters.forEach(async letter => {
-    const repeats = Math.ceil(Math.random() * 4)
+    const repeats = Math.ceil(Math.random() * 3)
     for(let i = 0; i < repeats; i++) {
-      const delay = Math.random() * 300
+      const delay = Math.random() * 500
       await createTimer(() => letter.classList.add("lit-letter"), delay)
-      await createTimer(() => letter.classList.remove("lit-letter"), 100)
+      await createTimer(() => letter.classList.remove("lit-letter"), 200)
       i == repeats - 1 ? letter.classList.add("lit-letter") : null
     }
   })

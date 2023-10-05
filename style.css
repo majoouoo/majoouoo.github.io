@@ -235,6 +235,7 @@ p, ul {
 
 #img-box .tile {
   margin: 20px;
+  margin-left: 0;
   display: grid;
   position: relative;
   top: 5vh;
