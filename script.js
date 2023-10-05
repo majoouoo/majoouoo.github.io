@@ -69,12 +69,23 @@ const flashEffect = (heading) => {
   })
 }
 
+const tiles = document.querySelectorAll(".tile")
+
 const handleScroll = (e) => {
   flashHeadings.forEach(heading => {
-    const isVisible = heading.getBoundingClientRect().top - window.innerHeight < -400
+    const isVisible = heading.getBoundingClientRect().top - window.innerHeight < -200
     if(isVisible && heading.dataset.effectDone == "false") {
       flashEffect(heading)
       heading.dataset.effectDone = "true"
+    }
+  })
+
+  tiles.forEach(tile => {
+    const isVisible = tile.getBoundingClientRect().top - window.innerHeight < -100
+    if(isVisible && tile.dataset.effectDone != "true") {
+      tile.style.top = 0
+      tile.style.opacity = 1
+      tile.dataset.effectDone = "true"
     }
   })
 }

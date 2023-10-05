@@ -30,7 +30,7 @@ a {
 /* General */
 
 .tile {
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid #3a3a3a;
   overflow: hidden;
 }
@@ -211,7 +211,7 @@ p, ul {
 /* Articles */
 
 .project {
-  padding: 20px 40px;
+  padding: 20px;
   height: 100vh;
   /* height: 200vh; */
   width: 50%;
@@ -235,6 +235,15 @@ p, ul {
 
 #img-box .tile {
   margin: 20px;
+  display: grid;
+  position: relative;
+  top: 5vh;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+#img-box a {
+  overflow: hidden;
 }
 
 #img-box img {
@@ -242,6 +251,12 @@ p, ul {
   height: calc(50vh - max(5vh, 40px) - 33px);
   width: 100%;
   display: block;
+  transition: transform 0.3s ease-out;
+}
+
+#img-box img:hover {
+  transform: scale(1.05);
+  overflow: hidden;
 }
 
 ul {
@@ -455,6 +470,8 @@ h2.flash {
     margin: 0;
     border-radius: 0;
     border: none;
+    top: 0;
+    opacity: 1;
   }
 
   #img-box .tile .tile-bar {
