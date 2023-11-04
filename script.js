@@ -56,7 +56,7 @@ const createTimer = (cb, ms) => {
   })
 }
 
-const flashEffect = (heading) => {
+const flashEffect = async (heading) => {
   const letters = [...heading.children]
   letters.forEach(async letter => {
     const repeats = Math.ceil(Math.random() * 3)
@@ -80,15 +80,17 @@ const handleScroll = (e) => {
     }
   })
 
-  tiles.forEach(tile => {
-    const isVisible = tile.getBoundingClientRect().top - window.innerHeight < -100
-    if(isVisible && tile.dataset.effectDone != "true") {
-      tile.style.top = 0
-      tile.style.opacity = 1
-      tile.dataset.effectDone = "true"
-    }
-  })
+  // tiles.forEach(tile => {
+  //   const isVisible = tile.getBoundingClientRect().top - window.innerHeight < -100
+  //   if(isVisible && tile.dataset.effectDone != "true") {
+  //     tile.style.top = 0
+  //     tile.style.opacity = 1
+  //     tile.dataset.effectDone = "true"
+  //   }
+  // })
 }
+
+handleScroll()
 
 window.addEventListener("scroll", e => handleScroll(e))
 

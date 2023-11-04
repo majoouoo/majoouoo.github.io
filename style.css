@@ -1,3 +1,8 @@
+:root {
+  --accent: #bbff00;
+  font-size: min(5vw, 24px);
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -20,11 +25,12 @@ body {
 }
 
 p, ul {
-  font-family: "Lora", monospace;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
 }
 
 a {
-  color: #bbff00;
+  color: var(--accent);
 }
 
 /* General */
@@ -44,7 +50,7 @@ a {
   padding: 0 20px;
   color: #919191;
   font-family: monospace;
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 
 footer.tile-bar {
@@ -53,17 +59,22 @@ footer.tile-bar {
 }
 
 .tile-content {
-  padding: 20px 40px;
+  padding: 20px;
 }
 
-h2 {
-  font-family: sans-serif;
+h1, h2 {
+  font-family: "Inter", sans-serif;
   font-weight: 300;
-  font-size: 5rem;
+  font-size: 3.6rem;
 }
 
-p, ul {
-  font-size: min(1.8vw, 24px);
+#footer {
+  width: 100vw;
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #3a3a3a;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
 }
 
 /* Frontpage */
@@ -85,7 +96,7 @@ p, ul {
   grid-row: 1 / -1;
   z-index: -1;
   height: calc(100vh - 61px * 2);
-  width: 100vw;
+  width: 100%;
   position: absolute;
   perspective: 40px;
   overflow: hidden;
@@ -118,17 +129,11 @@ p, ul {
   font-size: min(10vw, 150px);
   line-height: 0.7em;
   margin: 0;
-  color: #bbff00;
-}
-
-#introduction #name {
-  font-family: "UnifrakturMaguntia", sans-serif;
+  color: var(--accent);
   letter-spacing: -5px;
 }
 
 #introduction #surname {
-  font-family: "Vina Sans", sans-serif;
-  letter-spacing: -5px;
   transform: translateX(-7px);
 }
 
@@ -138,9 +143,9 @@ p, ul {
 }
 
 #subtitle h3 {
-  font-size: min(4vw, 40px);
-  /* text-transform: uppercase; */
-  font-weight: 100;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
   margin: 0 30px 0 0;
 }
 
@@ -158,7 +163,7 @@ p, ul {
 }
 
 #contact p {
-  font-size: 330%;
+  font-size: 2.2rem;
   font-family: "Le Murmure", sans-serif;
   white-space: nowrap;
   color: #4d4d4d;
@@ -208,54 +213,74 @@ p, ul {
   text-decoration: none;
 }
 
-/* Articles */
+/* Projects */
 
 .project {
-  padding: 20px;
-  height: 100vh;
-  /* height: 200vh; */
-  width: 50%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.project .tile {
-  margin-top: 20px;
-}
-
-#img-box {
-  position: sticky;
-  width: 50%;
-  top: 0;
-  float: right;
-  display: block;
-}
-
-#img-box .tile {
   margin: 20px;
-  margin-left: 0;
+  height: calc(100vh - 40px);
+  box-sizing: border-box;
   display: grid;
-  position: relative;
-  top: 5vh;
-  opacity: 0;
-  transition: all 0.3s ease-out;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, minmax(1fr));
+  gap: 10px;
 }
 
-#img-box a {
-  overflow: hidden;
+.gap {
+  margin: 10vh auto;
+  height: 1px;
+  width: 60vw;
+  background-color: #3a3a3a;
 }
 
-#img-box img {
+.tile.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+  padding: 20px;
+}
+
+.tile.title h1 {
+  font-weight: 800;
+  color: var(--accent);
+  text-align: center;
+}
+
+.tile.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 30px 10px;
+}
+
+.tile.link h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.tile.link .material-symbols-outlined {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.tile.screenshot {
   object-fit: cover;
-  height: calc(50vh - max(5vh, 40px) - 33px);
-  width: 100%;
   display: block;
   transition: transform 0.3s ease-out;
 }
 
-#img-box img:hover {
+.tile.screenshot img {
+  object-fit: cover;
+  min-height: 100%;
+  width: 100%;
+
+  transition: transform 0.3s ease-out;
+}
+
+.tile.screenshot img:hover {
   transform: scale(1.05);
   overflow: hidden;
 }
@@ -280,6 +305,36 @@ h2.flash {
 .lit-letter {
   color: white;
   text-shadow: 0 0 20px #ffffff;
+}
+
+.tile.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.tile.logo * {
+  overflow: hidden;
+}
+
+.tile.logo #vue-logo {
+  flex: 0 1 auto;
+  max-height: 130px;
+  min-width: 50px;
+}
+
+.tile.logo #vue-text {
+  flex: 1 0 auto;
+
+  font-size: min(7vw, 50px);
+  font-weight: 800;
+  background: -webkit-linear-gradient(315deg,#42d392 25%,#647eff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: max-content;
 }
 
 /* Cursor */
@@ -365,7 +420,7 @@ h2.flash {
   }
 }
 
-/* Mobile devices - portrait + landscape (keeps images on the right) */
+/* Mobile devices - portrait + landscape */
 @media screen and (max-width: 1000px) {
   * {
     cursor: initial;
@@ -383,14 +438,6 @@ h2.flash {
 
   img {
     cursor: unset;
-  }
-
-  h2 {
-    font-size: 3rem;
-  }
-
-  p, ul {
-    font-size: 20px;
   }
 
   #cursor {
@@ -446,18 +493,32 @@ h2.flash {
   }
 
   .project {
-    height: max-content;
+    height: auto;
+    width: auto;
+    grid-template-columns: repeat(2, minmax(30%, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(250px, 50vh));
+    gap: 10px;
+    margin: 10px;
+  }
+
+  .grid-wide {
+    grid-row: span 1 !important;
+    grid-column: span 2 !important;
+  }
+
+  .grid-tall {
+    grid-row: span 2 !important;
+    grid-column: span 1 !important;
+  }
+
+  .grid-small {
+    grid-row: span 1 !important;
+    grid-column: span 1 !important;
   }
 }
 
-/* Mobile devices - portrait only (sticks images to bottom) */
+/* Mobile devices - portrait only */
 @media screen and (max-width: 1000px) and (min-height: 500px) {
-  .project {
-    margin-bottom: 40vh;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
   #img-box {
     width: 100%;
     float: none;
@@ -486,4 +547,6 @@ h2.flash {
   #contact p {
     color: white;
   }
+
+
 }
