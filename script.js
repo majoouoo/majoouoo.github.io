@@ -1,3 +1,5 @@
+window.location.replace("https://majoouoo.github.io/geography")
+
 const cursorEl = document.getElementById("cursor")
 
 const handleMouseMove = (e) => {
